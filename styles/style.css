@@ -1,0 +1,119 @@
+*,*::after,*::before {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+:root {
+  --purple-color:  hsl(263, 55%, 52%);
+  --dark-gray-color: hsl(217, 19%, 35%);
+  --dark-blue-color: hsl(219, 29%, 14%);
+  --light-gray: hsl(0, 0%, 81%);
+}
+
+html {
+  font-size: 13px;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+
+.mainGrid {
+  display: grid;
+  width: min(1450px,95%);
+  grid-gap: 30px;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-areas: 'first first second third'
+                       'fourth fifth fifth third';
+}
+
+.card {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 500;
+  padding: 2rem 4rem;
+  border-radius: 15px;
+}
+
+.firstCard,
+.secondCard,
+.fifthCard {
+  color: white;
+}
+
+
+.firstCard {
+  background: url('.././images/bg-pattern-quotation.svg') no-repeat top right 100px ;
+  background-color: var(--purple-color);
+  grid-area: first;
+}
+
+
+p , .personal-info h4 {
+  font-size: 1.3rem;
+  line-height: 25px;
+}
+
+p {
+  color: var(--light-gray);
+}
+
+.secondCard {
+  background-color: var(--dark-gray-color);
+}
+
+.thirdCard {
+  grid-area: third;
+}
+
+.fourthCard {
+  grid-area: fourth;
+}
+
+.thirdCard,.fourthCard {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0,.1);
+}
+
+.thirdCard p,.fourthCard p {
+  color: hsl(219, 29%, 14%,.6);
+}
+
+.fifthCard {
+  background-color: var(--dark-blue-color);
+  grid-area: fifth;
+}
+
+
+h2 {
+  font-size: clamp(1.5rem , 5vw , 2rem);
+  font-weight: 600;
+  margin: 2rem 0rem;
+}
+
+.infoCards {
+  display: flex;
+  align-items: center;
+}
+
+.infoCards img {
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+
+@media (max-width: 1200px) {
+  .mainGrid {
+    padding: 3rem 0rem;
+    grid-template-areas: 'first'
+                         'second'
+                         'third'
+                         'fourth'
+                         'fifth';
+    grid-template-columns: 1fr;
+    grid-row-gap: 50px;
+  }
+}
